@@ -153,7 +153,7 @@
     margin-bottom: 0.5rem;
     opacity: 0;
     transform: translateY(30%);
-    transition: 0.3s ease-in;
+    transition: opacity 0.4s ease-in, transform 0.4s ease-in;
     &:nth-child(2) {
       transition-delay: 0.1s;
     }

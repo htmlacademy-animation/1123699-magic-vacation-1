@@ -95,9 +95,10 @@
   line-height: 1.27;
   opacity: 0;
   transform: translateY(30%);
-
+  transition: all 0.7s ease-in;
   .screen.active & {
-    animation: fadeIn 0.7s forwards, slideUp 0.7s forwards;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @media (min-width: $stop-scaling) {
