@@ -96,6 +96,18 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(30%);
+
+  .screen.active .swiper-slide-active &,
+  .screen.active .swiper-slide-next & {
+    animation: fadeIn 0.5s forwards, slideLeft 0.5s forwards;
+    animation-delay: 0.3s;
+  }
+
+  .screen.active .swiper-slide-next &  {
+    animation-delay: 0.5s;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;

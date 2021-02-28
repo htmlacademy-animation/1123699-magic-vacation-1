@@ -93,6 +93,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
+  opacity: 0;
+  transform: translateY(30%);
+
+  .screen.active & {
+    animation: fadeIn 0.7s forwards, slideUp 0.7s forwards;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 509px;
