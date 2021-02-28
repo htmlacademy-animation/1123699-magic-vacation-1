@@ -881,30 +881,6 @@ button.swiper-pagination-bullet {
           backface-visibility: hidden;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-
-@keyframes slideUp {
-  from {
-    transform: translateY(30%); }
-  to {
-    transform: translateY(0); } }
-
-@keyframes slideLeft {
-  from {
-    transform: translateX(30%); }
-  to {
-    transform: translateX(0); } }
-
-@keyframes expandWidth {
-  from {
-    width: 0; }
-  to {
-    width: calc(100% - 21rem); } }
-
 @font-face {
   font-family: "Proxima Nova";
   font-style: normal;
@@ -1352,9 +1328,10 @@ img {
   color: #5f458c;
   border: 0;
   border-radius: 3rem;
-  outline: none; }
+  outline: none;
+  transition: 0.5s linear; }
   .screen.active .form__field {
-    animation: expandWidth 0.6s forwards; }
+    width: calc(100% - 21rem); }
   .form__field:focus {
     border: 1px solid #a67ee5; }
   @media (min-width: 2000px) {
@@ -1621,9 +1598,11 @@ img {
   font-size: 2.4rem;
   line-height: 1.27;
   opacity: 0;
-  transform: translateY(30%); }
+  transform: translateY(30%);
+  transition: all 0.7s ease-in; }
   .screen.active .intro__message {
-    animation: fadeIn 0.7s forwards, slideUp 0.7s forwards; }
+    opacity: 1;
+    transform: translateY(0); }
   @media (min-width: 2000px) {
     .intro__message {
       width: 509px;
@@ -2986,13 +2965,15 @@ img {
   font-size: 1.8rem;
   line-height: 2rem;
   opacity: 0;
-  transform: translateX(30%); }
+  transform: translateX(30%);
+  transition: all 0.5s ease-in; }
   .screen.active .swiper-slide-active .slider__item-text,
   .screen.active .swiper-slide-next .slider__item-text {
-    animation: fadeIn 0.5s forwards, slideLeft 0.5s forwards;
-    animation-delay: 0.3s; }
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.3s; }
   .screen.active .swiper-slide-next .slider__item-text {
-    animation-delay: 0.5s; }
+    transition-delay: 0.5s; }
   @media (min-width: 2000px) {
     .slider__item-text {
       margin-top: 36px;
@@ -3279,7 +3260,7 @@ img {
     margin-bottom: 0.5rem;
     opacity: 0;
     transform: translateY(30%);
-    transition: 0.3s ease-in; }
+    transition: opacity 0.4s ease-in, transform 0.4s ease-in; }
     .social-block__list li:nth-child(2) {
       transition-delay: 0.1s; }
     .social-block__list li:last-child {
