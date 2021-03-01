@@ -5,6 +5,12 @@
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
+  opacity: 0;
+  transition: opacity 1s $transition-fast 0.2s;
+
+  .page-loaded & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -35,6 +41,12 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-30%);
+  transition: transform 0.7s $transition-fast;
+
+  .page-loaded & {
+    transform: none;
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -268,7 +280,13 @@
     &.active {
       pointer-events: none;
       &::after {
-        width: 100%;
+        width: 0;
+        right: auto;
+        left: 0;
+        transition: width 0.5s linear 0.3s;
+        .page-loaded & {
+          width: 100%;
+        }
       }
     }
 

@@ -21,7 +21,11 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
-  transition: color 0.2s linear;
+  transform: scale(0);
+  transition: color 0.2s linear, transform 0.5s $transition-bounce 0.5s;
+  .page-loaded & {
+    transform: none;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -183,6 +187,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: color 0.2s linear;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
