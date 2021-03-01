@@ -6,6 +6,7 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.pageOverlay = document.querySelector(`#pageOverlay`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -34,7 +35,16 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    if (this.activeScreen === 2) {
+      this.pageOverlay.classList.add(`is-animated`);
+      setTimeout(() => {
+        this.changeVisibilityDisplay();
+      }, 400);
+    } else {
+      this.pageOverlay.classList.remove(`is-animated`);
+      this.changeVisibilityDisplay();
+    }
+
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }

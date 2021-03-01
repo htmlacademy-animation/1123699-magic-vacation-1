@@ -1,0 +1,14 @@
+.page-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $c-dark;
+  height: 0;
+  transition: 0s;
+  z-index: 1;
+  &.is-animated {
+    height: 100%;
+    transition: 0.3s linear;
+  }  
+}
