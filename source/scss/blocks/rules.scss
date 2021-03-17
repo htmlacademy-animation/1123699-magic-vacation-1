@@ -123,6 +123,7 @@
   padding-top: 0.6rem;
   padding-left: 6.5rem;
   break-inside: avoid;
+  will-change: transform;
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 62px;
@@ -159,7 +160,14 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
-
+    transform: scale(0);
+    color: transparent;
+    animation-name: bullets-zoom, bullets-txt;
+    animation-duration: 0.4s, 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: $transition-bounce, ease-in;
+    animation-delay: 0s, 0.1s;
+    
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
       width: 2.5rem;
@@ -179,10 +187,74 @@
 
   p {
     margin: 0;
+    opacity: 0;
+    transform: translateX(15px);
+    animation-name: rules-txt;
+    animation-duration: 0.5s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
     }
+  }
+
+  &:nth-child(2) {
+    &::before {
+      animation-delay: 0.3s, 0.4s;
+    }
+    p {
+      animation-delay: 0.4s;
+    }
+  }
+
+  &:nth-child(3) {
+    &::before {
+      animation-delay: 0.6s, 0.7s;
+    }
+    p {
+      animation-delay: 0.7s;
+    }
+  }
+
+  &:nth-child(4) {
+    &::before {
+      animation-delay: 0.9s, 1s;
+    }
+    p {
+      animation-delay: 1s;
+    }
+  }
+  
+}
+
+@keyframes bullets-zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes bullets-txt {
+  from {
+    color: transparent;
+  }
+  to {
+    color: white;
+  }
+}
+
+@keyframes rules-txt {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -190,6 +262,25 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+  color: transparent;
+  opacity: 0;
+  animation-name: fade-in, rules-link-txt;
+  animation-duration: 0.1s, 0.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 1.3s, 1.5s;
+  animation-timing-function: ease-in;
+
+  &::before {
+    width: 3.3rem;
+    animation-name: rules-link-expand;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 1.3s;
+    left: auto;
+    right: 0;
+    transform: translateY(-50%);
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
@@ -209,5 +300,32 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     bottom: 2rem;
     right: 1.5rem;
+  }
+}
+
+@keyframes rules-link-expand {
+  from {
+    width: 3.3rem;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes rules-link-txt {
+  from {
+    color: transparent;
+  }
+  to {
+    color: $c-purple;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
