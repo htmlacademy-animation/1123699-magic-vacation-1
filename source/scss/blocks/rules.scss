@@ -226,7 +226,7 @@
       animation-delay: 1s;
     }
   }
-  
+
 }
 
 @keyframes bullets-zoom {
@@ -271,7 +271,7 @@
   animation-timing-function: ease-in;
 
   &::before {
-    width: 3.3rem;
+    width: 5rem;
     animation-name: rules-link-expand;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
