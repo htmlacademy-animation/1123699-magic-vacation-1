@@ -282,6 +282,19 @@
     transform: translateY(-50%);
   }
 
+  &:hover {
+    color: $c-purple !important;
+  }
+
+  &:focus {
+    color: $c-purple !important;
+  }
+
+  &:active,
+  &:active:focus {
+    color: $c-light !important;
+  }
+
   @media (min-width: $stop-scaling) {
     bottom: 60px;
     right: 56px;
@@ -317,7 +330,7 @@
     color: transparent;
   }
   to {
-    color: $c-purple;
+    color: $c-dark;
   }
 }
 
