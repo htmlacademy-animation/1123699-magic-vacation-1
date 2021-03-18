@@ -2635,6 +2635,12 @@ img {
     left: auto;
     right: 0;
     transform: translateY(-50%); }
+  .rules__link:hover {
+    color: #a67ee5 !important; }
+  .rules__link:focus {
+    color: #a67ee5 !important; }
+  .rules__link:active, .rules__link:active:focus {
+    color: #ffffff !important; }
   @media (min-width: 2000px) {
     .rules__link {
       bottom: 60px;
@@ -2662,7 +2668,7 @@ img {
   from {
     color: transparent; }
   to {
-    color: #a67ee5; } }
+    color: #5f458c; } }
 
 @keyframes fade-in {
   from {
