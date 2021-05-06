@@ -32,6 +32,11 @@
   line-height: 0.906;
   letter-spacing: -0.04em;
 
+  .split {
+    padding-top: 0.1em;
+    margin-top: -0.1em;
+  }
+
   @media (min-width: $stop-scaling) {
     margin-bottom: 50px;
     font-size: 48px;
@@ -264,7 +269,7 @@
   right: 5.6rem;
   color: transparent;
   opacity: 0;
-  animation-name: fade-in, rules-link-txt;
+  animation-name: fadeIn, fadeInTxt;
   animation-duration: 0.1s, 0.2s;
   animation-fill-mode: forwards;
   animation-delay: 1.3s, 1.5s;
@@ -325,20 +330,3 @@
   }
 }
 
-@keyframes rules-link-txt {
-  from {
-    color: transparent;
-  }
-  to {
-    color: $c-dark;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
