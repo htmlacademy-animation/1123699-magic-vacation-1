@@ -26,4 +26,3 @@ splitAnimation();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
-
