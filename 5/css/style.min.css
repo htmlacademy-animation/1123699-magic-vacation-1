@@ -2277,33 +2277,33 @@ img {
   width: 465px;
   top: 38%;
   opacity: 0;
-  transform: rotate(-30deg);
+  transform: rotate(-50deg);
   transform-origin: left center;
-  animation: leafBlue1 1.8s linear forwards;
-  animation-delay: 0.3s;
+  animation: leafBlue1 2.8s ease-in-out forwards;
+  animation-delay: 0.5s;
   will-change: transform; }
 
 @keyframes leafBlue1 {
   0% {
-    transform: rotate(-30deg);
-    opacity: 0; }
-  20% {
-    transform: rotate(2deg) translate(0); }
+    opacity: 0;
+    transform: rotate(-50deg); }
+  22% {
+    transform: rotate(10deg); }
   40% {
-    transform: rotate(-3deg) translateY(0);
-    opacity: 1; }
-  55% {
-    transform: rotate(1deg) translateY(0);
-    opacity: 1; }
+    opacity: 1;
+    transform: rotate(-5deg); }
+  53% {
+    opacity: 1;
+    transform: rotate(2.5deg); }
   70% {
-    transform: rotate(-1deg) translateY(0);
-    opacity: 1; }
+    opacity: 1;
+    transform: rotate(-1.3deg); }
   85% {
-    transform: rotate(1deg) translateY(0);
-    opacity: 1; }
+    opacity: 1;
+    transform: rotate(0.5deg); }
   100% {
-    transform: rotate(0deg) translateY(0);
-    opacity: 1; } }
+    opacity: 1;
+    transform: rotate(0deg); } }
 
 .result__image-leaf-blue-2 {
   width: 468px;
@@ -2311,82 +2311,77 @@ img {
   opacity: 0;
   transform: rotate(30deg) translate(-124%);
   transform-origin: right center;
-  animation: leafBlue2 1.8s linear forwards;
-  animation-delay: 0.3s;
+  animation: leafBlue2 2.8s ease-in-out forwards;
+  animation-delay: 0.6s;
   will-change: transform; }
 
 @keyframes leafBlue2 {
   0% {
-    transform: rotate(30deg) translate(-124%);
-    opacity: 0; }
-  30% {
-    transform: rotate(-2deg) translate(-124%, 0); }
-  45% {
-    transform: rotate(3deg) translate(-124%, 0);
-    opacity: 1; }
-  60% {
-    transform: rotate(-1deg) translate(-124%, 0);
-    opacity: 1; }
-  75% {
-    transform: rotate(1deg) translate(-124%, 0);
-    opacity: 1; }
-  90% {
-    transform: rotate(-1deg) translate(-124%, 0);
-    opacity: 1; }
+    opacity: 0;
+    transform: rotate(30deg) translate(-124%); }
+  22% {
+    transform: rotate(-5deg) translate(-124%); }
+  40% {
+    opacity: 1;
+    transform: rotate(3deg) translate(-124%); }
+  53% {
+    opacity: 1;
+    transform: rotate(-2.5deg) translate(-124%); }
+  70% {
+    opacity: 1;
+    transform: rotate(1.3deg) translate(-124%); }
+  85% {
+    opacity: 1;
+    transform: rotate(-0.5deg) translate(-124%); }
   100% {
-    transform: rotate(0deg) translate(-124%, 0);
-    opacity: 1; } }
+    opacity: 1;
+    transform: rotate(0deg) translate(-124%); } }
 
 .result__image-leaf-green {
   width: 555px;
   top: 55.5%;
-  transform: translateX(-11%);
   opacity: 0;
   transform: rotate(-30deg) translateX(-11%);
   transform-origin: left center;
-  animation: leafGreen 2s linear forwards;
-  animation-delay: 0.5s;
+  animation: leafGreen 3.2s ease-in-out forwards;
+  animation-delay: 0.7s;
   will-change: transform; }
 
 @keyframes leafGreen {
   0% {
-    transform: rotate(-30deg) translateX(-11%);
-    opacity: 0; }
-  20% {
-    transform: rotate(3deg) translateX(-11%); }
+    opacity: 0;
+    transform: rotate(-30deg) translateX(-11%); }
+  22% {
+    transform: rotate(10deg) translateX(-11%); }
   40% {
-    transform: rotate(-1deg) translateX(-11%);
-    opacity: 1; }
-  55% {
-    transform: rotate(2deg) translateX(-11%);
-    opacity: 1; }
+    opacity: 1;
+    transform: rotate(-3deg) translateX(-11%); }
+  53% {
+    opacity: 1;
+    transform: rotate(2.5deg) translateX(-11%); }
   70% {
-    transform: rotate(0) translateX(-11%);
-    opacity: 1; }
+    opacity: 1;
+    transform: rotate(-1.3deg) translateX(-11%); }
   85% {
-    transform: rotate(1deg) translateX(-11%);
-    opacity: 1; }
+    opacity: 1;
+    transform: rotate(0.5deg) translateX(-11%); }
   100% {
-    transform: rotate(0deg) translateX(-11%);
-    opacity: 1; } }
+    opacity: 1;
+    transform: rotate(0deg) translateX(-11%); } }
 
 .result__image-suitcase {
   width: 580px;
   top: 37.5%;
   opacity: 0;
-  transform: translate(-60%, 100%) scale(0);
-  transform-origin: center bottom;
-  animation: suitCase 0.6s linear forwards;
+  transform: translate(-60%, 80%) scale(0);
+  animation: suitCase 1s cubic-bezier(0, 0, 0.44, 1.26) forwards;
   will-change: transform; }
 
 @keyframes suitCase {
   0% {
-    transform: translate(-60%, 100%) scale(0);
+    transform: translate(-60%, 80%) scale(0);
     opacity: 0; }
   20% {
-    opacity: 1; }
-  70% {
-    transform: translate(-60%, -10%) scale(1);
     opacity: 1; }
   100% {
     transform: translate(-60%, 0) scale(1);
@@ -2396,17 +2391,16 @@ img {
   width: 440px;
   top: 48%;
   opacity: 0;
-  transform: translate(-91%, 100%) rotate(-30deg);
-  transform-origin: right bottom;
-  animation: flamingo 5s linear forwards;
+  transform: translate(-91%, 80%) rotate(-30deg);
+  animation: flamingo 7s linear forwards;
   will-change: transform; }
 
 @keyframes flamingo {
   0% {
-    transform: translate(-91%, 100%) rotate(-30deg);
+    transform: translate(-91%, 80%) rotate(-30deg);
     opacity: 0; }
   10% {
-    transform: translate(-91%, -3%) rotate(0);
+    transform: translate(-91%, -10%) rotate(0);
     opacity: 1; }
   30% {
     transform: translate(-91%, 3%) rotate(-5deg);
