@@ -10118,85 +10118,85 @@ module.exports = code;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AccentTypographyBuild; });
 class AccentTypographyBuild {
-    constructor(
-        elementSelector,
-        classForActivate,
-        wordDelay = 0,
-        delay = 0 
-    ) {
-      this.TIME_SPACE = 300;
-      this.DELAY_VARS = 3;
-  
-      this.elementSelector = elementSelector;
-  
-      if (typeof this.elementSelector === `string`) {
-        this.element = document.querySelector(this.elementSelector);
-      } else {
-        this.element = this.elementSelector;
-      }
+  constructor(
+      elementSelector,
+      classForActivate,
+      wordDelay = 0,
+      delay = 0
+  ) {
+    this.TIME_SPACE = 300;
+    this.DELAY_VARS = 3;
 
-      this.classForActivate = classForActivate;
-      this.wordDelay = wordDelay;
-      this.delay = delay;
-  
-      this.prepareText();
+    this.elementSelector = elementSelector;
+
+    if (typeof this.elementSelector === `string`) {
+      this.element = document.querySelector(this.elementSelector);
+    } else {
+      this.element = this.elementSelector;
     }
-  
-  
-    createElement(letter, letterIndex, wordIndex) {
-      const span = document.createElement(`span`);
-  
-      span.textContent = letter;
-      this.timeOffset = Math.floor(Math.random() * this.TIME_SPACE);
-      span.style.transitionDelay = `${(this.DELAY_VARS - letterIndex % this.DELAY_VARS) * this.delay + wordIndex * this.wordDelay}ms`;
-  
-      return span;
+
+    this.classForActivate = classForActivate;
+    this.wordDelay = wordDelay;
+    this.delay = delay;
+
+    this.prepareText();
+  }
+
+  createElement(letter, letterIndex, wordIndex) {
+    const span = document.createElement(`span`);
+
+    span.textContent = letter;
+    this.timeOffset = Math.floor(Math.random() * this.TIME_SPACE);
+    span.style.transitionDelay = `${(this.DELAY_VARS - letterIndex % this.DELAY_VARS) * this.delay + wordIndex * this.wordDelay}ms`;
+
+    return span;
+  }
+
+  prepareText() {
+    if (!this.element) {
+      return;
     }
-  
-    prepareText() {
-      if (!this.element) {
-        return;
-      }
-  
-      const text = this.element.textContent.trim().split(` `);
-  
-      const {length} = text;
-      const content = text.reduce((fragmentParent, word, wordIndex) => {
-        const wordElement = Array.from(word).reduce((fragment, letter, letterIndex) => {
-          fragment.appendChild(this.createElement(letter, letterIndex, wordIndex));
-          
-          return fragment;
-        }, document.createDocumentFragment());
-        
-        const wordContainer = document.createElement(`span`);
-  
-        wordContainer.classList.add(`split`);
-        wordContainer.appendChild(wordElement);
-        fragmentParent.appendChild(wordContainer);
-  
-        // Add Space text node:
-        if (wordIndex < length - 1) fragmentParent.appendChild(document.createTextNode(` `));
-  
-        return fragmentParent;
+
+    const text = this.element.textContent.trim().split(` `);
+
+    const {length} = text;
+    const content = text.reduce((fragmentParent, word, wordIndex) => {
+      const wordElement = Array.from(word).reduce((fragment, letter, letterIndex) => {
+        fragment.appendChild(this.createElement(letter, letterIndex, wordIndex));
+
+        return fragment;
       }, document.createDocumentFragment());
 
-      this.element.innerHTML = ``;
-      this.element.appendChild(content);
-    }
-  
-    runAnimation() {
-      if (!this.element) {
-        return;
+      const wordContainer = document.createElement(`span`);
+
+      wordContainer.classList.add(`split`);
+      wordContainer.appendChild(wordElement);
+      fragmentParent.appendChild(wordContainer);
+
+      // Add Space text node:
+      if (wordIndex < length - 1) {
+        fragmentParent.appendChild(document.createTextNode(` `));
       }
-  
-      this.element.classList.add(this.classForActivate);
-    }
-  
-    destroyAnimation() {
-      this.element.classList.remove(this.classForActivate);
-    }
+      return fragmentParent;
+    }, document.createDocumentFragment());
+
+    this.element.innerHTML = ``;
+    this.element.appendChild(content);
   }
-  
+
+  runAnimation() {
+    if (!this.element) {
+      return;
+    }
+
+    this.element.classList.add(this.classForActivate);
+  }
+
+  destroyAnimation() {
+    this.element.classList.remove(this.classForActivate);
+  }
+}
+
 
 /***/ }),
 
@@ -10386,7 +10386,6 @@ class FullPageScroll {
   init() {
     document.addEventListener(`wheel`, lodash_throttle__WEBPACK_IMPORTED_MODULE_0___default()(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
-    
     this.onUrlHashChanged();
   }
 
@@ -10534,9 +10533,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (() => {
-    document.body.onload = function () {
-        document.body.classList.add(`page-loaded`);
-    };
+  document.body.onload = function () {
+    document.body.classList.add(`page-loaded`);
+  };
 });
 
 
@@ -10720,45 +10719,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (() => {
-    document.body.addEventListener(`screenChanged`, () => {
-        const introTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.intro__title`, `is-animated`, 300, 100);
-        introTitle.destroyAnimation();
-        setTimeout(() => {
-            introTitle.runAnimation();
-        }, 300);  
-        
-        const introDate = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.intro__date`, `is-animated`, 100, 50);
-        introDate.destroyAnimation();
-        setTimeout(() => {
-            introDate.runAnimation();
-        }, 300); 
-
-        const sliderTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.slider__item-title`, `is-animated`, 300, 100);
-        sliderTitle.destroyAnimation();
-        setTimeout(() => {
-            sliderTitle.runAnimation();
-        }, 300); 
-
-        const prizesTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.prizes__title`, `is-animated`, 300, 100);
-        prizesTitle.destroyAnimation();
-        setTimeout(() => {
-            prizesTitle.runAnimation();
-        }, 500);
-
-        const rulesTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.rules__title`, `is-animated`, 300, 100);
-        rulesTitle.destroyAnimation();
-        setTimeout(() => {
-            rulesTitle.runAnimation();
-        }, 300);
-
-        const gameTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.game__title`, `is-animated`, 300, 100);
-        gameTitle.destroyAnimation();
-        setTimeout(() => {
-            gameTitle.runAnimation();
-        }, 300);
-    });
+  document.body.addEventListener(`screenChanged`, () => {
+    const introTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.intro__title`, `is-animated`, 300, 100);
+    introTitle.destroyAnimation();
+    setTimeout(() => {
+      introTitle.runAnimation();
+    }, 300);
+    const introDate = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.intro__date`, `is-animated`, 100, 50);
+    introDate.destroyAnimation();
+    setTimeout(() => {
+      introDate.runAnimation();
+    }, 300);
+    const sliderTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.slider__item-title`, `is-animated`, 300, 100);
+    sliderTitle.destroyAnimation();
+    setTimeout(() => {
+      sliderTitle.runAnimation();
+    }, 300);
+    const prizesTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.prizes__title`, `is-animated`, 300, 100);
+    prizesTitle.destroyAnimation();
+    setTimeout(() => {
+      prizesTitle.runAnimation();
+    }, 500);
+    const rulesTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.rules__title`, `is-animated`, 300, 100);
+    rulesTitle.destroyAnimation();
+    setTimeout(() => {
+      rulesTitle.runAnimation();
+    }, 300);
+    const gameTitle = new _accent_typography_builder_js__WEBPACK_IMPORTED_MODULE_0__["default"](`.game__title`, `is-animated`, 300, 100);
+    gameTitle.destroyAnimation();
+    setTimeout(() => {
+      gameTitle.runAnimation();
+    }, 300);
+  });
 });
-  
+
 
 /***/ }),
 
@@ -10810,7 +10804,6 @@ Object(_modules_split_animation_js__WEBPACK_IMPORTED_MODULE_10__["default"])();
 
 const fullPageScroll = new _modules_full_page_scroll__WEBPACK_IMPORTED_MODULE_8__["default"]();
 fullPageScroll.init();
-
 
 
 /***/ }),
